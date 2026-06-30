@@ -100,6 +100,9 @@ a { color: var(--blue); text-decoration: none; }
 /* CONTACT */
 .contact { text-align: center; }
 .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+/* Ghost buttons sit on a light background here, so give them dark text/border */
+.contact .btn-ghost { color: var(--blue); border-color: var(--blue); }
+.contact .btn-ghost:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
 /* FOOTER */
 .footer { background: var(--navy); color: #cfe3f3; text-align: center; padding: 1.5rem; font-size: .85rem; }
