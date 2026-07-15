@@ -1,6 +1,7 @@
 // Featured projects (link to the live GitHub repos)
 const PROJECTS = [
   { tag: 'Full-Stack · React', name: 'BloodFang — AnimeBox', repo: 'BloodFang-AnimeBox',
+    live: 'https://bloodfang-anime.web.app/',
     desc: 'Full-stack React 19 (Vite) anime browser with search & genre filters, backed by an Express API that aggregates data from multiple external APIs, plus React Router and Firebase.' },
   { tag: 'Backend · Database', name: '.NET Web API + EF Core', repo: 'dotnet-webapi-efcore-sqlserver',
     desc: '.NET 9 REST API with EF Core, SQL Server, migrations, seeding, pagination, search, and Swagger.' },
@@ -32,7 +33,10 @@ function renderProjects() {
       <span class="tag">${p.tag}</span>
       <h4>${p.name}</h4>
       <p>${p.desc}</p>
-      <a class="repo-link" href="https://github.com/${USER}/${p.repo}" target="_blank" rel="noopener">View on GitHub →</a>
+      <div class="project-links">
+        ${p.live ? `<a class="repo-link live-link" href="${p.live}" target="_blank" rel="noopener">🔴 Live Demo →</a>` : ''}
+        <a class="repo-link" href="https://github.com/${USER}/${p.repo}" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
     </article>
   `).join('');
 }
