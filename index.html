@@ -34,7 +34,7 @@
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="Saurav_Srivastav_Resume.pdf" class="btn btn-ghost" download>Download Resume</a>
+        <button type="button" class="btn btn-ghost" id="resumeBtn">Download Resume</button>
       </div>
       <div class="hero-links">
         <a href="https://github.com/SauravSrivastav22" target="_blank" rel="noopener">GitHub</a>
@@ -153,6 +153,33 @@
   <footer class="footer">
     <p>© <span id="year"></span> Saurav Srivastav · Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
   </footer>
+
+  <!-- RESUME DOWNLOAD MODAL -->
+  <div class="modal-overlay" id="resumeModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+      <button class="modal-close" id="resumeModalClose" aria-label="Close">&times;</button>
+      <h3 id="resumeModalTitle">Download Résumé</h3>
+      <p class="modal-sub">Pick the version that suits you best — both open/save as PDF.</p>
+      <div class="resume-options">
+        <a href="Saurav_Srivastav_Resume.pdf" download class="resume-option">
+          <span class="ro-icon">📄</span>
+          <span class="ro-text">
+            <span class="ro-title">Full Résumé</span>
+            <span class="ro-desc">Detailed 2-page — full projects, experience &amp; skills</span>
+          </span>
+          <span class="ro-cta">Download ↓</span>
+        </a>
+        <a href="Saurav_Srivastav_Resume_OnePage.pdf" download class="resume-option">
+          <span class="ro-icon">📃</span>
+          <span class="ro-text">
+            <span class="ro-title">One-Page Résumé</span>
+            <span class="ro-desc">Concise single page — quick recruiter scan</span>
+          </span>
+          <span class="ro-cta">Download ↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/script.js"></script>
 </body>

@@ -50,9 +50,26 @@ function setupReveal() {
   els.forEach((el) => io.observe(el));
 }
 
+// Resume download modal (blurred backdrop + version options)
+function setupResumeModal() {
+  const btn = document.getElementById('resumeBtn');
+  const modal = document.getElementById('resumeModal');
+  const closeBtn = document.getElementById('resumeModalClose');
+  if (!btn || !modal) return;
+  const open = () => { modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('modal-open'); };
+  const close = () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('modal-open'); };
+  btn.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  // Close shortly after a version is chosen (download still fires)
+  modal.querySelectorAll('.resume-option').forEach((a) => a.addEventListener('click', () => setTimeout(close, 150)));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
   setupReveal();
+  setupResumeModal();
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 });

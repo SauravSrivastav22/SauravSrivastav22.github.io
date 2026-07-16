@@ -54,6 +54,46 @@ a { color: var(--blue); text-decoration: none; }
 .btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
 .btn-ghost:hover { border-color: #fff; transform: translateY(-2px); }
 
+/* RESUME MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+  background: rgba(8,44,71,.5);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease;
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+body.modal-open { overflow: hidden; }
+.modal-card {
+  position: relative; background: var(--card); color: var(--text);
+  width: 100%; max-width: 460px; border-radius: 16px;
+  padding: 2rem 1.8rem 1.9rem; box-shadow: 0 24px 60px rgba(8,44,71,.35);
+  transform: translateY(16px) scale(.98); transition: transform .25s ease;
+}
+.modal-overlay.open .modal-card { transform: translateY(0) scale(1); }
+.modal-card h3 { font-size: 1.5rem; color: var(--navy); }
+.modal-sub { color: var(--muted); margin: .3rem 0 1.3rem; font-size: .93rem; }
+.modal-close {
+  position: absolute; top: .7rem; right: 1rem;
+  background: none; border: none; font-size: 1.9rem; line-height: 1;
+  color: var(--muted); cursor: pointer; transition: color .2s;
+}
+.modal-close:hover { color: var(--navy); }
+.resume-options { display: flex; flex-direction: column; gap: .9rem; }
+.resume-option {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.1rem; border: 1.5px solid var(--line); border-radius: 12px;
+  color: var(--text); transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+.resume-option:hover {
+  border-color: var(--blue); box-shadow: 0 8px 22px rgba(42,122,176,.18); transform: translateY(-2px);
+}
+.ro-icon { font-size: 1.7rem; }
+.ro-text { display: flex; flex-direction: column; flex: 1; }
+.ro-title { font-weight: 700; color: var(--navy); font-size: 1.02rem; }
+.ro-desc { font-size: .8rem; color: var(--muted); line-height: 1.4; }
+.ro-cta { font-weight: 700; color: var(--blue); font-size: .88rem; white-space: nowrap; }
+
 /* SECTIONS */
 .section { padding: 4.5rem 0; }
 .section.alt { background: #eaf1f8; }
